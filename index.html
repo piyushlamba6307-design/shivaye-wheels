@@ -5,66 +5,139 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body {margin:0;font-family:Arial;background:#000;color:white;}
+body {margin:0;font-family: 'Segoe UI',sans-serif;background:#000;color:white}
 
-.hero {
-background:url('https://images.unsplash.com/photo-1502877338535-766e1452684a') center/cover;
-height:100vh;
+/* NAVBAR */
+nav {
 display:flex;
-flex-direction:column;
-justify-content:center;
-padding-left:50px;
-background-color:rgba(0,0,0,0.6);
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+position:absolute;
+width:100%;
+z-index:10;
+}
+
+nav h2 {color:gold;}
+
+nav a {
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.call-btn {
+border:1px solid gold;
+padding:8px 15px;
+border-radius:20px;
+}
+
+/* HERO */
+.hero {
+height:100vh;
+background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover;
+display:flex;
+align-items:center;
+padding-left:60px;
+background-color:rgba(0,0,0,0.7);
 background-blend-mode:darken;
 }
 
-.hero h1 {font-size:60px;color:gold;}
-.hero p {font-size:20px;}
-.btn {
-padding:12px 25px;
-background:gold;
-border:none;
-margin-top:10px;
-cursor:pointer;
+.hero-content h1 {
+font-size:55px;
+color:gold;
 }
 
-.section {padding:60px;text-align:center;}
-.section h2 {color:gold;}
+.hero-content span {
+font-size:45px;
+font-weight:bold;
+}
 
-.cars {display:flex;flex-wrap:wrap;justify-content:center;}
+.btn {
+padding:12px 25px;
+border-radius:25px;
+border:1px solid gold;
+background:transparent;
+color:white;
+margin-right:10px;
+}
+
+/* SECTION */
+.section {
+padding:60px;
+text-align:center;
+}
+
+.section h2 {
+color:gold;
+}
+
+/* CAR CARDS */
+.cars {
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+}
 
 .card {
 width:300px;
 margin:15px;
 background:#111;
-padding:15px;
 border-radius:10px;
+overflow:hidden;
 border:1px solid gold;
 }
 
-.card img {width:100%;border-radius:10px;}
+.card img {
+width:100%;
+height:200px;
+object-fit:cover;
+}
 
+.card-content {
+padding:15px;
+}
+
+.price {
+color:gold;
+}
+
+/* ABOUT */
+.about {
+display:flex;
+flex-wrap:wrap;
+padding:60px;
+align-items:center;
+}
+
+.about img {
+width:50%;
+}
+
+.about-text {
+width:50%;
+padding:20px;
+}
+
+/* CONTACT */
 .contact {
 display:flex;
 flex-wrap:wrap;
-padding:50px;
+padding:60px;
 }
 
-.form {
-flex:1;
-}
-
-.form input, .form textarea {
-width:90%;
-margin:10px;
-padding:10px;
-}
-
-.info {
+.form, .info {
 flex:1;
 padding:20px;
 }
 
+input, textarea {
+width:90%;
+padding:10px;
+margin:10px 0;
+}
+
+/* WHATSAPP */
 .whatsapp {
 position:fixed;
 bottom:20px;
@@ -74,15 +147,36 @@ padding:15px;
 border-radius:50%;
 }
 
+/* MOBILE */
+@media(max-width:768px){
+.about img, .about-text {width:100%}
+.hero {padding:20px}
+}
+
 </style>
 </head>
 
 <body>
 
+<nav>
+<h2>Shivaye Wheels</h2>
+<div>
+<a href="#">Home</a>
+<a href="#">Cars</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+<a class="call-btn" href="tel:8830092400">Call: 8830092400</a>
+</div>
+</nav>
+
 <div class="hero">
-<h1>Shivaye Wheels</h1>
-<p>Coming Soon to Nagpur & Raipur</p>
+<div class="hero-content">
+<p>COMING SOON TO</p>
+<h1>NAGPUR & RAIPUR</h1>
+<p>Luxury Cars Destination</p>
+<button class="btn">Explore Cars</button>
 <button class="btn" onclick="window.location.href='tel:8830092400'">Call Now</button>
+</div>
 </div>
 
 <div class="section">
@@ -91,31 +185,43 @@ border-radius:50%;
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2">
+<div class="card-content">
 <h3>Mercedes AMG GT</h3>
-<p>₹1.20 Cr</p>
-<button class="btn">Enquire Now</button>
+<p class="price">₹1.20 Cr</p>
+<button class="btn">Enquire</button>
+</div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a">
+<div class="card-content">
 <h3>BMW M4</h3>
-<p>₹1.20 Cr</p>
-<button class="btn">Enquire Now</button>
+<p class="price">₹1.20 Cr</p>
+<button class="btn">Enquire</button>
+</div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8">
+<div class="card-content">
 <h3>Porsche 911</h3>
-<p>₹1.20 Cr</p>
-<button class="btn">Enquire Now</button>
-</div>
-
+<p class="price">₹1.20 Cr</p>
+<button class="btn">Enquire</button>
 </div>
 </div>
 
-<div class="section">
+</div>
+</div>
+
+<div class="about">
+<img src="https://images.unsplash.com/photo-1549921296-3a6b9c4d4c0d">
+<div class="about-text">
 <h2>About Shivaye Wheels</h2>
-<p>Luxury car marketplace offering premium verified vehicles in Nagpur & Raipur.</p>
+<p>Luxury automobile marketplace offering premium verified vehicles in Nagpur & Raipur.</p>
+<p>✔ Verified Vehicles</p>
+<p>✔ Trusted Deals</p>
+<p>✔ Luxury Experience</p>
+</div>
 </div>
 
 <div class="contact">
