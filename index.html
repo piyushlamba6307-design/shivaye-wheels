@@ -4,26 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shivaye Wheels</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body {margin:0;background:#000;color:#fff;font-family:'Poppins',sans-serif}
+body {margin:0;background:#000;color:#fff;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
 
 /* NAVBAR */
 nav {
-position:absolute;
+position:fixed;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 60px;
-z-index:10;
+z-index:100;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
 }
 
-nav h1 {
+.logo {
 font-family:'Playfair Display',serif;
 color:gold;
-letter-spacing:2px;
+font-size:22px;
+letter-spacing:3px;
 }
 
 nav .menu a {
@@ -42,23 +45,22 @@ border-radius:25px;
 /* HERO */
 .hero {
 height:100vh;
-background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7') center/cover no-repeat;
+background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover no-repeat;
 display:flex;
 align-items:center;
 padding-left:80px;
-background-color:rgba(0,0,0,0.75);
+background-color:rgba(0,0,0,0.8);
 background-blend-mode:darken;
 }
 
 .hero h1 {
-font-size:65px;
+font-size:70px;
 font-family:'Playfair Display',serif;
 color:gold;
+margin:0;
 }
 
-.hero p {
-font-size:20px;
-}
+.hero p {font-size:20px;letter-spacing:1px}
 
 .btn {
 padding:12px 28px;
@@ -76,83 +78,59 @@ color:#000;
 box-shadow:0 0 20px gold;
 }
 
-/* SECTION */
-.section {
-padding:80px 60px;
-text-align:center;
+/* SCROLL ANIMATION */
+.fade-in {
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
 }
 
-.section h2 {
-font-family:'Playfair Display',serif;
-color:gold;
+.fade-in.show {
+opacity:1;
+transform:translateY(0);
 }
+
+/* SECTION */
+.section {padding:100px 60px;text-align:center}
+.section h2 {color:gold;font-family:'Playfair Display',serif}
 
 /* CARS */
-.cars {
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
+.cars {display:flex;justify-content:center;gap:25px;flex-wrap:wrap}
 
 .card {
 width:320px;
 background:#111;
 border-radius:12px;
 overflow:hidden;
-border:1px solid rgba(255,215,0,0.4);
-transition:0.3s;
+border:1px solid rgba(255,215,0,0.3);
+transition:0.4s;
 }
 
 .card:hover {
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(255,215,0,0.5);
+transform:translateY(-12px);
+box-shadow:0 0 30px rgba(255,215,0,0.6);
 }
 
-.card img {
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.card-content {
-padding:15px;
-}
-
+.card img {width:100%;height:220px;object-fit:cover}
+.card-content {padding:15px}
 .price {color:gold}
 
 /* ABOUT */
-.about {
-display:flex;
-align-items:center;
-padding:80px 60px;
-}
-
-.about img {
-width:50%;
-border-radius:10px;
-}
-
-.about-text {
-width:50%;
-padding:40px;
-}
+.about {display:flex;align-items:center;padding:100px 60px}
+.about img {width:50%;border-radius:12px}
+.about-text {width:50%;padding:40px}
 
 /* CONTACT */
-.contact {
-display:flex;
-padding:80px 60px;
-}
+.contact {display:flex;padding:100px 60px}
+.form,.info {flex:1}
 
-.form, .info {flex:1}
-
-input, textarea {
+input,textarea {
 width:90%;
 padding:12px;
 margin:10px 0;
 background:#111;
 border:1px solid #333;
-color:white;
+color:white
 }
 
 .whatsapp {
@@ -162,13 +140,13 @@ right:20px;
 background:#25D366;
 padding:16px;
 border-radius:50%;
-font-size:20px;
+font-size:20px
 }
 
 @media(max-width:768px){
 .hero {padding:20px}
 .about {flex-direction:column}
-.about img, .about-text {width:100%}
+.about img,.about-text {width:100%}
 .contact {flex-direction:column}
 }
 </style>
@@ -177,13 +155,13 @@ font-size:20px;
 <body>
 
 <nav>
-<h1>SHIVAYE</h1>
+<div class="logo">SHIVAYE WHEELS</div>
 <div class="menu">
 <a href="#">Home</a>
-<a href="#">Featured Cars</a>
-<a href="#">About Us</a>
-<a href="#">Contact</a>
-<a href="tel:8830092400" class="call-btn">Call : 8830092400</a>
+<a href="#cars">Cars</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a href="tel:8830092400" class="call-btn">Call</a>
 </div>
 </nav>
 
@@ -197,7 +175,7 @@ font-size:20px;
 </div>
 </div>
 
-<div class="section">
+<div id="cars" class="section fade-in">
 <h2>FEATURED CARS</h2>
 <div class="cars">
 
@@ -206,7 +184,7 @@ font-size:20px;
 <div class="card-content">
 <h3>Mercedes AMG GT</h3>
 <p class="price">₹1.20 Cr | Petrol | Automatic</p>
-<button class="btn">Enquire Now</button>
+<button class="btn" onclick="sendWhatsApp('Mercedes AMG GT')">Enquire</button>
 </div>
 </div>
 
@@ -215,7 +193,7 @@ font-size:20px;
 <div class="card-content">
 <h3>BMW M4</h3>
 <p class="price">₹1.20 Cr | Petrol | Automatic</p>
-<button class="btn">Enquire Now</button>
+<button class="btn" onclick="sendWhatsApp('BMW M4')">Enquire</button>
 </div>
 </div>
 
@@ -224,31 +202,31 @@ font-size:20px;
 <div class="card-content">
 <h3>Porsche 911</h3>
 <p class="price">₹1.20 Cr | Petrol | Manual</p>
-<button class="btn">Enquire Now</button>
+<button class="btn" onclick="sendWhatsApp('Porsche 911')">Enquire</button>
 </div>
 </div>
 
 </div>
 </div>
 
-<div class="about">
+<div id="about" class="about fade-in">
 <img src="https://images.unsplash.com/photo-1549921296-3a6b9c4d4c0d">
 <div class="about-text">
 <h2>About Shivaye Wheels</h2>
-<p>Shivaye Wheels is a premium luxury automobile marketplace offering verified vehicles and elite buying experiences.</p>
+<p>Premium luxury automobile marketplace offering verified vehicles and elite buying experience.</p>
 <p>✔ Verified Vehicles</p>
 <p>✔ Trusted Deals</p>
 <p>✔ Luxury Experience</p>
 </div>
 </div>
 
-<div class="contact">
+<div id="contact" class="contact fade-in">
 <div class="form">
 <h2>Contact Us</h2>
-<input placeholder="Your Name">
-<input placeholder="Phone Number">
-<textarea placeholder="Message"></textarea>
-<button class="btn">Send</button>
+<input id="name" placeholder="Your Name">
+<input id="phone" placeholder="Phone Number">
+<textarea id="msg" placeholder="Message"></textarea>
+<button class="btn" onclick="sendForm()">Send</button>
 </div>
 
 <div class="info">
@@ -259,6 +237,30 @@ font-size:20px;
 </div>
 
 <a class="whatsapp" href="https://wa.me/918830092400">💬</a>
+
+<script>
+function sendWhatsApp(car){
+let url = `https://wa.me/918830092400?text=I am interested in ${car}`;
+window.open(url,'_blank');
+}
+
+function sendForm(){
+let name=document.getElementById('name').value;
+let phone=document.getElementById('phone').value;
+let msg=document.getElementById('msg').value;
+let url=`https://wa.me/918830092400?text=Name:${name}%0APhone:${phone}%0AMessage:${msg}`;
+window.open(url,'_blank');
+}
+
+// Scroll Animation
+let elements=document.querySelectorAll('.fade-in');
+window.addEventListener('scroll',()=>{
+elements.forEach(el=>{
+let pos=el.getBoundingClientRect().top;
+if(pos<window.innerHeight-100){el.classList.add('show');}
+});
+});
+</script>
 
 </body>
 </html>
