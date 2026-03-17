@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shivaye Wheels</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{margin:0;font-family:Arial;background:#000;color:white;text-align:center;}
+header{padding:30px;border-bottom:2px solid gold;}
+h1{color:gold;font-size:40px;}
+.hero{padding:120px 20px;background:#111;}
+.section{padding:60px 20px;}
+.box{border:1px solid gold;padding:20px;margin:20px;display:inline-block;width:220px;background:#111;}
+button{background:gold;border:none;padding:15px 25px;font-size:16px;}
+footer{padding:30px;border-top:2px solid gold;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Shivaye Wheels</h1>
+<p>Luxury Cars Destination</p>
+</header>
+
+<div class="hero">
+<h2>Opening Soon</h2>
+<h3>Nagpur & Raipur</h3>
+<p>With ASure Drive</p>
+<button onclick="window.location.href='tel:8830092400'">Call Now</button>
+</div>
+
+<footer>
+<p>📞 8830092400</p>
+</footer>
+
+</body>
+</html>
